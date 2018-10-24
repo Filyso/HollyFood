@@ -1,4 +1,122 @@
 body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+h1 {
+    color: #ffffff;
+    font-size: 5rem;
+    line-height: 5rem;
+}
+h2 {
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #737373;
+    border-radius: 1.5px;
+    height: 3px;
+    margin: 0;
+    width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #F4C839;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+}
+
+.recipeBody {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.recipeBody>div {
+    box-sizing: border-box;
+    flex: 1;
+    max-width: 50%;
+}
+
+/***************/
+/* RECIPE LEFT */
+/***************/
+.recipeLeft {
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0,0,0,0.68), rgba(0,0,0,0.68)), url("../image/recipe/tiramisu.jpg") no-repeat bottom;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 60px;
+}
+.recipeLeft span {
+    color: #F4C839;
+}
+.recipeLeft div{
+    align-self: flex-start;
+}
+
+.shareList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+.shareList li {
+    margin: 0 10px;
+    background-color: #929292;
+    border-radius: 50%;
+    height: 4vw;
+    width: 4vw;
+}
+.shareList a {
+    box-sizing: border-box;
+    display: block;
+    padding: 1vw;
+}
+.shareList svg {
+    fill: #ffffff;
+}
+
+/****************/
+/* RECIPE RIGHT */
+/****************/
+.recipeRight {
+    background: url("../image/recipe/coffee_beans.png") no-repeat right -380% top -65%;
+    background-size: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 3rem;
+}
+.recipeRight>div {
+    flex: 1;
+}
+
+.recipeContent {
+    width: 50%;
+}
+
+.ingredientList {
+
+}
+
+.recipeVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
