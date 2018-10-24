@@ -71,6 +71,18 @@ input[type="range"]::-webkit-slider-thumb {
 .recipeLeft div{
     align-self: flex-start;
 }
+.logoGalbani {
+    width: 10vw;
+}
+
+.playBtn {
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 7.3vw;
+    width: 7.3vw;
+}
 
 .shareList {
     display: flex;
@@ -83,6 +95,9 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     height: 4vw;
     width: 4vw;
+}
+.shareList li:hover {
+    background-color: #737373;
 }
 .shareList a {
     box-sizing: border-box;
