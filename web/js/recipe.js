@@ -34,7 +34,7 @@ if ('webkitSpeechRecognition' in window) {
                         player.playVideo();
                     } else if (word === "pause" || word === "stop") {
                         player.pauseVideo();
-                    } else if (word === "arrêter" || word === "arrêtez" || word === "arrêter") {
+                    } else if (word === "arrêter" || word === "arrêtez" || word === "arrêté" || word === "quitter") {
                         player.stopVideo();
                         recognition.stop();
                         btnPlay.addEventListener("click", launchRecipe);
