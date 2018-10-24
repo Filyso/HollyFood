@@ -1,9 +1,14 @@
-
+/* VAR */
 var player;
 var playerYT
 var btnPlay = document.getElementById("playRecipeBtn");
-var resultP = document.getElementById("result");
 var words = null;
+
+/* Recognition var*/
+var playWords = ["lancer", "commencer", "débuter", "reprendre"];
+var pauseWords = ["pause", "stop"];
+var stopWords = ["arrêter", "arrêtez", "arrêté", "quitter"];
+
 
 // YOUTUBE //
 var tag = document.createElement('script');
@@ -11,7 +16,6 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
 
 document.addEventListener("DOMContentLoaded", initialise);
 
@@ -26,22 +30,20 @@ if ('webkitSpeechRecognition' in window) {
         for (var i = evt.resultIndex; i < evt.results.length; i++) {
             var transcript = evt.results[i][0].transcript;
             if (evt.results[i].isFinal) {
-                // recognition.stop();
                 console.log(transcript);
                 words = transcript.split(' ');
                 for (var word of words) {
-                    if (word === "lancer" || word === "commencer" || word === "débuter" || word === "reprendre") {
+                    if (in_array(word, playWords)/*word === "lancer" || word === "commencer" || word === "débuter" || word === "reprendre"*/) {
                         player.playVideo();
-                    } else if (word === "pause" || word === "stop") {
+                    } else if (in_array(word, pauseWords)/*word === "pause" || word === "stop"*/) {
                         player.pauseVideo();
-                    } else if (word === "arrêter" || word === "arrêtez" || word === "arrêté" || word === "quitter") {
+                    } else if (in_array(word, stopWords)/*word === "arrêter" || word === "arrêtez" || word === "arrêté" || word === "quitter"*/) {
                         player.stopVideo();
                         recognition.stop();
                         btnPlay.addEventListener("click", launchRecipe);
                         document.querySelector("body").removeChild(document.getElementById("playerVideo"));
                     }
                 }
-                // recognition.start();
                 return true;
             }
         }
@@ -71,4 +73,14 @@ function launchRecipe(evt) {
     });
 
     this.removeEventListener("click", launchRecipe);
+}
+
+function in_array(string, array) {
+    var result = false;
+    var i = 0;
+    while (result === false && i < array.length) {
+        if (array[i] === string) result = true;
+        i++;
+    }
+    return result;
 }
